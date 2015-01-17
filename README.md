@@ -17,6 +17,13 @@ Playground for my [first steps in the golang](https://tour.golang.org/list).
     - if two or more consecutive parameters share the same type, you can omit the it from all but the last
     - a function can return *any* number of values (like tuples in python)
 - **strings** are enquoted by doublequotes `"`
+- the **var** statement declares a list of variables with the type last
+    - it is allowed on *function* and *package* level (global)
+    - examples:
+        - `var a, b bool`
+        - initalizers can be used like this:
+            - `var a, b = true, false` or (note that the type can be omitted if the initialiser is present)
+            - `var a=true, b bool`
 
 ```go
 func add(a, b int) int {
