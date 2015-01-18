@@ -82,6 +82,21 @@ if x := 10; x == 10 {
 }
 ```
 
+- **switch-case** statements break automatically, unless you specfiy a *falltrough* statement (`default` case)
+
+```go
+switch os := runtime.GOOS; os {
+case "darwin":
+    fmt.Println("OS X.")
+case "linux":
+    fmt.Println("Linux.")
+default:
+    // freebsd, openbsd,
+    // plan9, windows...
+    fmt.Printf("%s.", os)
+}
+```
+
 ## Tips
 
 - to build & run a Go file in one step use `go run file.go`
