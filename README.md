@@ -156,6 +156,25 @@ for i, v := range x {
 
 - you can skip a loop variable when you assign `_` to it, like in Python: `for _, v := range x {}`
 
+### [Maps](https://tour.golang.org/moretypes/15)
+
+- map declaration looks like this: `map[T_key]T_value`, f.e. `map[string]uint64`
+- maps have to be created with `make(map_declaration)` before using them
+- you can use **map literals** to initalize a map like this:
+
+```go
+var m2 = map[string]uint64{
+    "foo": 42,
+    "bar": 314,
+}
+```
+
+- there **must** be a trailing comma behind the last value!
+- insert `m[key] = elem`
+- get `elem = m[key]`
+- `delete(m, key)`
+- check if a key is present: `elem, ok = m[key]`, where `ok` is `true` if `key` is present in map `m`, otherwise `ok` is false and the `elem` is the zero value of its type
+
 ### Miscellanous
 
 - the `defer` statement defers the execution of a function until the surrounding function returns
