@@ -49,6 +49,39 @@ func add(a, b int) int {
 - constants can be character, string boolean or numeric values
 - numeric-constants are [*high-precision* values](https://tour.golang.org/basics/16)
 
+### Loops
+
+- go has only one looping construct, the `foor` loop
+- to emulate a `while` loop leave the *pre* and *post* statements empty: `for ; x < y; {}`, you can even omit out the `;`: `for x < y {}`
+- omit the loop conditions and you get an infinite loop: `for {}`
+
+```go
+for i := 0; i < 10; i++ {
+    sum += i
+}
+```
+
+### Conditions
+
+- C-like but without the parentheses:
+
+```go
+if x < y {
+    x++
+} else {
+    y++
+}
+```
+
+- you can write a pre-statement before the if-statement
+- variables declared in this pre-statement are only visible inside the scope of the if statement
+
+```go
+if x := 10; x == 10 {
+    fmt.Println("It's only an example.")
+}
+```
+
 ## Tips
 
 - to build & run a Go file in one step use `go run file.go`
