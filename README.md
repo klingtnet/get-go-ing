@@ -27,7 +27,7 @@ func add(a, b int) int {
 }
 ```
 
-### Variables
+### Variables & Types
 
 - the **var** statement declares a list of variables with the type last
     - it is allowed on *function* and *package* level (global)
@@ -38,8 +38,16 @@ func add(a, b int) int {
             - note that the type can be omitted if the initializer is present
             - each variable from the initializer list can have a different type
     - var statements can be factored into blocks, similar to the import statement, see [basictypes.go](./src/basictypes.go) for an example
+    - variables declared without an explicit initial value will be instantiated with their specific [zero value](https://tour.golang.org/basics/12)
 - inside a function the **short assignment** statement can be used: `a := 100`
+- **type conversions** can be done with `T(..)`, where `T` is the type and inside of the parantheses is the value to convert, f.e. `float64(128)`
 
+### Constants
+
+- declared using the `const` keyword
+- **can't** be declared using the short assigment statement `:=`
+- constants can be character, string boolean or numeric values
+- numeric-constants are [*high-precision* values](https://tour.golang.org/basics/16)
 
 ## Tips
 
