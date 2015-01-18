@@ -97,6 +97,12 @@ default:
 }
 ```
 
+### Miscellanous
+
+- the `defer` statement defers the execution of a function until the surrounding function returns
+- deferred function calls are pushed on a stack and are executed in **LIFO** order
+- [more on defer](http://blog.golang.org/defer-panic-and-recover)
+
 ## Tips
 
 - to build & run a Go file in one step use `go run file.go`
