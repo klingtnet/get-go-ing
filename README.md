@@ -42,6 +42,32 @@ func add(a, b int) int {
 - inside a function the **short assignment** statement can be used: `a := 100`
 - **type conversions** can be done with `T(..)`, where `T` is the type and inside of the parantheses is the value to convert, f.e. `float64(128)`
 
+#### [Function Values](https://tour.golang.org/moretypes/20)
+
+- functions can also be assigned as variable values:
+
+```go
+square := func(x int) int {
+    return x*x
+}
+```
+
+#### [Closures](https://tour.golang.org/moretypes/21)
+
+- a closure is a function value that references variables from outside its body
+
+```go
+func adder() func(int) int {
+    sum := 0
+    return func(x int) int {
+        sum += x
+        return sum
+    }
+}
+```
+
+- the inner function can access the `sum` variable from the enclosing function, even after the outer function has returned
+
 ### [Constants](https://tour.golang.org/basics/15)
 
 - declared using the `const` keyword
