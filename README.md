@@ -140,7 +140,7 @@ p := []int{2, 3, 5, 7, 11, 13}
 fmt.Println(p[1:5])
 ```
 
-- `make(T[], l, c)` creates a slice with **initial length** `l` and **capicity** `c`
+- `make([]T, l, c)` creates a slice with **initial length** `l` and (optional) **capicity** `c`
 - `len(s)` gives the *length* and `cap(s)` the *capacity* of slice `s`
 - a `nil` slice ([FP](http://en.wikipedia.org/wiki/Cons)) has length and capacity `0`
 - a slice can be appended with `append(s []T, vs ...T) []T`, where the first argument is a slice of type `T` and the following parameters are `T` values
@@ -153,6 +153,8 @@ for i, v := range x {
     // v = value of x[i]
 }
 ```
+
+- you can skip a loop variable when you assign `_` to it, like in Python: `for _, v := range x {}`
 
 ### Miscellanous
 
