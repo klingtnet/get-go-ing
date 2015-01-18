@@ -22,8 +22,9 @@ Playground for my [first steps in the golang](https://tour.golang.org/list).
     - examples:
         - `var a, b bool`
         - initalizers can be used like this:
-            - `var a, b = true, false` or (note that the type can be omitted if the initialiser is present)
-            - `var a=true, b bool`
+            - `var a, b, c = true, false, "hej!"`
+            - note that the type can be omitted if the initializer is present
+            - each variable from the initializer list can have a different type
 
 ```go
 func add(a, b int) int {
