@@ -99,8 +99,9 @@ default:
 
 ### [Pointers](https://tour.golang.org/moretypes/1)
 
-- pointer declaration is C-like: `*T`, where `T` is the type of a value the pointer refers to
-- the `&` generates an pointer of the value it refers to
+- **pointer declaration** is C-like: `*T`, where `T` is the type of a value the pointer refers to
+- **dereferencing** the `&` generates an pointer of the value it refers to
+- there is no **pointer arithmetic** in Go
 
 ```go
 var p *int
@@ -109,11 +110,42 @@ p = &i
 fmt.Println(*p) // prints 42
 ```
 
+## Structured Data
+
+### [Structs](https://tour.golang.org/moretypes/2)
+
+- `struct literals` denotes a newly allocated struct
+- you can list a subset using the `Name: ` syntax: `Vertex{X: 3}`
+
+```go
+type Vertex struct {
+    X int
+    Y int
+}
+
+// instantiation
+v := Vertex{1, 2}
+v.X = 4
+```
+
+### [Arrays](https://tour.golang.org/moretypes/6)
+
+- an array of `n` elements with type `T` is declared like this `[n]T`, f.e. `[100]rune`
+- arrays **can't** be resized
+- Go has an array slice syntax similar to pythons list slices:
+
+```go
+p := []int{2, 3, 5, 7, 11, 13}
+fmt.Println(p[1:5])
+```
+
 ### Miscellanous
 
 - the `defer` statement defers the execution of a function until the surrounding function returns
 - deferred function calls are pushed on a stack and are executed in **LIFO** order
 - [more on defer](http://blog.golang.org/defer-panic-and-recover)
+- `make(T[], l, c)` creates a slice with **initial length** `l` and **capicity** `c`
+- `len(s)` gives the *length* and `cap(s)` the *capacity* of slice `s`
 
 ## Tips
 
