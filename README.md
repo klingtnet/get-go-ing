@@ -4,7 +4,7 @@
 
 Playground for my [first steps in the golang](https://tour.golang.org/list).
 
-## About Go
+## [Basics](https://tour.golang.org/basics/1)
 
 - Go programs are made out of **packages**
 - the `main` method must be in the **main** package
@@ -12,7 +12,7 @@ Playground for my [first steps in the golang](https://tour.golang.org/list).
     - the last element of the *import path* is the package name, by convention. `math/rand` imports the files from `math` that begin with `package rand`
 - in Go, a name is exported if it begins with a capital letter, f.e. `math.Pi`
 
-### Functions
+### [Functions](https://tour.golang.org/basics/4)
 
 - function definitions start with `func` followed by the function name, the parameter list and the return value
     - as opposed to C, the parameter name comes before the type, f.e. `x int`
@@ -27,7 +27,7 @@ func add(a, b int) int {
 }
 ```
 
-### Variables & Types
+### [Variables & Types](https://tour.golang.org/basics/8)
 
 - the **var** statement declares a list of variables with the type last
     - it is allowed on *function* and *package* level (global)
@@ -42,14 +42,14 @@ func add(a, b int) int {
 - inside a function the **short assignment** statement can be used: `a := 100`
 - **type conversions** can be done with `T(..)`, where `T` is the type and inside of the parantheses is the value to convert, f.e. `float64(128)`
 
-### Constants
+### [Constants](https://tour.golang.org/basics/15)
 
 - declared using the `const` keyword
 - **can't** be declared using the short assigment statement `:=`
 - constants can be character, string boolean or numeric values
 - numeric-constants are [*high-precision* values](https://tour.golang.org/basics/16)
 
-### Loops
+### [Loops](https://tour.golang.org/flowcontrol/1)
 
 - go has only one looping construct, the `foor` loop
 - to emulate a `while` loop leave the *pre* and *post* statements empty: `for ; x < y; {}`, you can even omit out the `;`: `for x < y {}`
@@ -61,7 +61,7 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-### Conditions
+### [Conditions](https://tour.golang.org/flowcontrol/5)
 
 - C-like but without the parentheses:
 
@@ -95,6 +95,18 @@ case t.Hour() < 17:
 default:
     fmt.Println("Good evening.")
 }
+```
+
+### [Pointers](https://tour.golang.org/moretypes/1)
+
+- pointer declaration is C-like: `*T`, where `T` is the type of a value the pointer refers to
+- the `&` generates an pointer of the value it refers to
+
+```go
+var p *int
+i := 42
+p = &i
+fmt.Println(*p) // prints 42
 ```
 
 ### Miscellanous
