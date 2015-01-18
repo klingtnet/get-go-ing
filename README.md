@@ -83,17 +83,17 @@ if x := 10; x == 10 {
 ```
 
 - **switch-case** statements break automatically, unless you specfiy a *falltrough* statement (`default` case)
+- the *evaluation order* is from *top to bottom*
+- a `switch` without condition is the same as `switch true` and can be used for long if-else chains:
 
 ```go
-switch os := runtime.GOOS; os {
-case "darwin":
-    fmt.Println("OS X.")
-case "linux":
-    fmt.Println("Linux.")
+switch {
+case t.Hour() < 12:
+    fmt.Println("Good morning!")
+case t.Hour() < 17:
+    fmt.Println("Good afternoon.")
 default:
-    // freebsd, openbsd,
-    // plan9, windows...
-    fmt.Printf("%s.", os)
+    fmt.Println("Good evening.")
 }
 ```
 
