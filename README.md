@@ -134,9 +134,24 @@ v.X = 4
 - arrays **can't** be resized
 - Go has an array slice syntax similar to pythons list slices:
 
+
 ```go
 p := []int{2, 3, 5, 7, 11, 13}
 fmt.Println(p[1:5])
+```
+
+- `make(T[], l, c)` creates a slice with **initial length** `l` and **capicity** `c`
+- `len(s)` gives the *length* and `cap(s)` the *capacity* of slice `s`
+- a `nil` slice ([FP](http://en.wikipedia.org/wiki/Cons)) has length and capacity `0`
+- a slice can be appended with `append(s []T, vs ...T) []T`, where the first argument is a slice of type `T` and the following parameters are `T` values
+- looping over a slice:
+
+```go
+x = []int {2, 4, 8}
+for i, v := range x {
+    // i = index
+    // v = value of x[i]
+}
 ```
 
 ### Miscellanous
@@ -144,8 +159,6 @@ fmt.Println(p[1:5])
 - the `defer` statement defers the execution of a function until the surrounding function returns
 - deferred function calls are pushed on a stack and are executed in **LIFO** order
 - [more on defer](http://blog.golang.org/defer-panic-and-recover)
-- `make(T[], l, c)` creates a slice with **initial length** `l` and **capicity** `c`
-- `len(s)` gives the *length* and `cap(s)` the *capacity* of slice `s`
 
 ## Tips
 
