@@ -37,6 +37,7 @@ func add(a, b int) int {
             - `var a, b, c = true, false, "hej!"`
             - note that the type can be omitted if the initializer is present
             - each variable from the initializer list can have a different type
+    - var statements can be factored into blocks, similar to the import statement, see [basictypes.go](./src/basictypes.go) for an example
 - inside a function the **short assignment** statement can be used: `a := 100`
 
 
