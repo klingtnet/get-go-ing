@@ -17,7 +17,7 @@ Playground for my [first steps in Go](https://tour.golang.org/list).
 - function definitions start with `func` followed by the function name, the parameter list and the return value
     - as opposed to C, the parameter name comes before the type, e.g. `x int`
     - [here is](golang.org/doc/articles/gos_declaration_syntax.html) why they choosed this syntax
-    - if two or more consecutive parameters share the same type, you can omit the it from all but the last
+    - if two or more consecutive parameters share the same type, you can omit it from all but the last
     - a function can return *any* number of values (like tuples in python)
 - **strings** are enquoted by doublequotes `"`
 
@@ -77,8 +77,8 @@ func adder() func(int) int {
 
 ### [Loops](https://tour.golang.org/flowcontrol/1)
 
-- go has only one looping construct, the `foor` loop
-- to emulate a `while` loop leave the *pre* and *post* statements empty: `for ; x < y; {}`, you can even omit out the `;`: `for x < y {}`
+- go has only one looping construct, the `for` loop
+- to emulate a `while` loop leave the *pre* and *post* statements empty: `for ; x < y; {}`, you can even omit the *semicolon*: `for x < y {}`
 - omit the loop conditions and you get an infinite loop: `for {}`
 
 ```go
