@@ -136,6 +136,10 @@ p = &i
 fmt.Println(*p) // prints 42
 ```
 
+- example use cases:
+    - [call-by-reference](http://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference)
+    - in-place modification, say you want to modify elements of a struct inside your function without returning it. I'm sure there is a valid use case for this, but I would consider it *bad practice* in most cases.
+
 ## Structured Data
 
 ### [Structs](https://tour.golang.org/moretypes/2)
@@ -200,6 +204,25 @@ var m2 = map[string]uint64{
 - get `elem = m[key]`
 - `delete(m, key)`
 - check if a key is present: `elem, ok = m[key]`, where `ok` is `true` if `key` is present in map `m`, otherwise `ok` is false and the `elem` is the zero value of its type
+
+### [Methods](https://tour.golang.org/methods/1)
+
+- there is **no class** construct in Go
+- **but**, you can *define methods on* [struct] *types*, which is pratically the same (see [OOP with Ansi-C (pdf)](http://www.cs.rit.edu/~ats/books/ooc.pdf)) apart from the access modifiers
+- the declaration looks like that from a function with an additional **Method Receiver** between the `func` keyword and the *function name*
+- you can call the method like you can access struct elements: `foo.F()`
+
+```go
+type Vertex struct {
+    X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+```
+
+- you can declare method on **any type from your package**, but not on others
 
 ### Miscellanous
 
