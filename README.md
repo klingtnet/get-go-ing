@@ -10,12 +10,12 @@ Playground for my [first steps in the golang](https://tour.golang.org/list).
 - the `main` method must be in the **main** package
 - inside of the **import** statement are the packages specified that should be imported
     - the last element of the *import path* is the package name, by convention. `math/rand` imports the files from `math` that begin with `package rand`
-- in Go, a name is exported if it begins with a capital letter, f.e. `math.Pi`
+- in Go, a name is exported if it begins with a capital letter, e.g. `math.Pi`
 
 ### [Functions](https://tour.golang.org/basics/4)
 
 - function definitions start with `func` followed by the function name, the parameter list and the return value
-    - as opposed to C, the parameter name comes before the type, f.e. `x int`
+    - as opposed to C, the parameter name comes before the type, e.g. `x int`
     - [here is](golang.org/doc/articles/gos_declaration_syntax.html) why they choosed this syntax
     - if two or more consecutive parameters share the same type, you can omit the it from all but the last
     - a function can return *any* number of values (like tuples in python)
@@ -40,7 +40,7 @@ func add(a, b int) int {
     - var statements can be factored into blocks, similar to the import statement, see [basictypes.go](./src/basictypes.go) for an example
     - variables declared without an explicit initial value will be instantiated with their specific [zero value](https://tour.golang.org/basics/12)
 - inside a function the **short assignment** statement can be used: `a := 100`
-- **type conversions** can be done with `T(..)`, where `T` is the type and inside of the parantheses is the value to convert, f.e. `float64(128)`
+- **type conversions** can be done with `T(..)`, where `T` is the type and inside of the parantheses is the value to convert, e.g. `float64(128)`
 
 #### [Function Values](https://tour.golang.org/moretypes/20)
 
@@ -156,7 +156,7 @@ v.X = 4
 
 ### [Arrays](https://tour.golang.org/moretypes/6)
 
-- an array of `n` elements with type `T` is declared like this `[n]T`, f.e. `[100]rune`
+- an array of `n` elements with type `T` is declared like this `[n]T`, e.g. `[100]rune`
 - arrays **can't** be resized
 - Go has an array slice syntax similar to pythons list slices:
 
@@ -184,7 +184,7 @@ for i, v := range x {
 
 ### [Maps](https://tour.golang.org/moretypes/15)
 
-- map declaration looks like this: `map[T_key]T_value`, f.e. `map[string]uint64`
+- map declaration looks like this: `map[T_key]T_value`, e.g. `map[string]uint64`
 - maps have to be created with `make(map_declaration)` before using them
 - you can use **map literals** to initalize a map like this:
 
