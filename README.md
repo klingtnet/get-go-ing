@@ -2,7 +2,7 @@
 
 ## What?
 
-Playground for my [first steps in the golang](https://tour.golang.org/list).
+Playground for my [first steps in Go](https://tour.golang.org/list).
 
 ## [Basics](https://tour.golang.org/basics/1)
 
