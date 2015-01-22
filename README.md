@@ -289,6 +289,66 @@ if err != nil {
 }
 ```
 
+### [Web Servers](https://tour.golang.org/methods/13)
+
+- the [http package](http://golang.org/pkg/net/http/) serves HTTP requests using any value that implements `http.Handler`
+- those values have to implement `ServeHTTP(w http.ResponseWriter, r *http.Request)`
+- [http Handler](src/exercise-http-handlers.go) example
+
+```go
+func (s Struct) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprint(w, fmt.Sprintf("%s%s %s\n", s.Greeting, s.Punct, s.Who))
+}
+```
+
+## Concurrency mechanisms
+
+### [Goroutines](https://tour.golang.org/concurrency/1)
+
+- a goroutine is a **lightweight thread**
+- the name is wordplay of [coroutines](http://en.wikipedia.org/wiki/Coroutine)
+- goroutines run in the same address space, so they have access to the shared memory → need of synchronization/locks
+- a goroutine is started with `go f()`, where `f` is an arbitrary function
+    - f's arguments will be evaluated in the current goroutine
+    - f will be executed in the new goroutine
+
+### [Channels](https://tour.golang.org/concurrency/2)
+
+- a channel is a **types pipe** (like pipes from the shell)
+- a channel must be created before use: `ch := make(chan type, bufferlen)`. The `bufferlen` parameter is optional.
+- you can send and receive values from a channel using the `<-` operator:
+    - send `ch <- v`
+    - receive `v := <-ch`
+- send and receive on channels is **blocking** (until the other side is ready) by default
+- a buffered channel blocks only when the buffer is full
+- channels **can** be **closed** to indicate that no more values will be send
+- **only senders** should close channels!
+- you can check if the second return value of a receive is `false`, then the channel was closed: `v, ok := <-ch`
+
+Loops until the channel was closed
+
+```go
+c := make(chan type)
+//...
+for v := range c {
+    // ...
+}
+```
+
+- the `select` statement is like `switch-case` for channels
+- if mutliple channels are ready at once, a random channel is chosen
+- the `default` case is run if no other channel is ready (can be used for non-blocking send/receive)
+
+```go
+select {
+case c <- x:
+    x, y = y, x+y
+case <-quit:
+    fmt.Println("quit")
+    return
+}
+```
+
 ### Miscellanous
 
 - the `defer` statement defers the execution of a function until the surrounding function returns
