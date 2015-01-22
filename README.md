@@ -251,7 +251,7 @@ v := Decimal{3.14}
 fmt.Println(v, v.Double())
 // use the pointer Receiver
 v.DoublePR()
-// the value of v has changed without explicit assignment
+// DoublePR() has mutated v in-place
 fmt.Println(v)
 ```
 
@@ -261,6 +261,12 @@ prints out:
 {3.14} 6.28
 {6.28}
 ```
+
+### [Interfaces](https://tour.golang.org/methods/4)
+
+- an **interface type** is defined by a set of methods
+- a **value** of the interface type has to **implement the methods**
+
 
 ### Miscellanous
 
