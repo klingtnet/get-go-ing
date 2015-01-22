@@ -5,12 +5,6 @@ import (
 	"fmt"
 )
 
-// type Tree struct {
-//    Left  *Tree
-//    Value int
-//    Right *Tree
-//}
-
 func WalkR(t *tree.Tree, ch chan int) {
 	if t.Left != nil {
 		WalkR(t.Left, ch)
