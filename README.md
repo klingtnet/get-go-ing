@@ -277,6 +277,18 @@ type Stringer interface {
 }
 ```
 
+### [Errors](https://tour.golang.org/methods/8) (Exceptions in Go)
+
+- `errors` is a built-in interface (similar to `Stringer`)
+- error checking is done by validating if an error value is `nil` (Go's null type):
+
+```go
+i, err := strconv.Atoi("42")
+if err != nil {
+    fmt.Printf("couldn't convert number: %v\n", err)
+}
+```
+
 ### Miscellanous
 
 - the `defer` statement defers the execution of a function until the surrounding function returns
