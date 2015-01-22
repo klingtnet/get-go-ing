@@ -146,6 +146,7 @@ fmt.Println(*p) // prints 42
 
 - `struct literals` denotes a newly allocated struct
 - you can list a subset using the `Name: ` syntax: `Vertex{X: 3}`
+- the indirection through struct pointers is [transparent](https://tour.golang.org/moretypes/4)
 
 ```go
 type Vertex struct {
@@ -230,6 +231,7 @@ func (v Vertex) Abs() float64 {
 - two main reasons for using pointer receivers:
     - **call-by-reference**, as default the method gets a copy of the struct (call-by-value)
     - **modifying** the method receiver **in-place**. You should now why you want to do this, because it's the explicit usage of [side effects](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)
+- you *can't* define the same method name for pointer and value type, see the example below
 
 [./src/method_receiver.go](./src/method_receiver.go)
 ```go
@@ -265,8 +267,15 @@ prints out:
 ### [Interfaces](https://tour.golang.org/methods/4)
 
 - an **interface type** is defined by a set of methods
-- a **value** of the interface type has to **implement the methods**
+- a **type** implements an interface by **implementing its methods**
+- interfaces are **satisfied implicitly**. There is no explicit **implements** keyword (like in Java), therefore an interface is satisfied if the type implements its methods.
+- the equivalent of Javas `toString()` method is the `String()` method from the `Stringer` interface:
 
+```go
+type Stringer interface {
+    String() string
+}
+```
 
 ### Miscellanous
 
