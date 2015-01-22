@@ -231,6 +231,7 @@ func (v Vertex) Abs() float64 {
     - **call-by-reference**, as default the method gets a copy of the struct (call-by-value)
     - **modifying** the method receiver **in-place**. You should now why you want to do this, because it's the explicit usage of [side effects](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)
 
+[./src/method_receiver.go](./src/method_receiver.go)
 ```go
 type Decimal struct {
     X float64
@@ -252,6 +253,13 @@ fmt.Println(v, v.Double())
 v.DoublePR()
 // the value of v has changed without explicit assignment
 fmt.Println(v)
+```
+
+prints out:
+
+```
+{3.14} 6.28
+{6.28}
 ```
 
 ### Miscellanous
