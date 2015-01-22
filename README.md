@@ -225,6 +225,35 @@ func (v Vertex) Abs() float64 {
 
 - you can declare method on **any type from your package**, but not on others
 
+#### Methods with [Pointer Receiver](https://tour.golang.org/methods/3)
+
+- two main reasons for using pointer receivers:
+    - **call-by-reference**, as default the method gets a copy of the struct (call-by-value)
+    - **modifying** the method receiver **in-place**. You should now why you want to do this, because it's the explicit usage of [side effects](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)
+
+```go
+type Decimal struct {
+    X float64
+}
+
+func (v Decimal) Double() float64 {
+    return 2 * v.X
+}
+
+func (v *Decimal) DoublePR() {
+    v.X = 2 * v.X
+}
+
+...
+v := Decimal{3.14}
+// call-by-value
+fmt.Println(v, v.Double())
+// use the pointer Receiver
+v.DoublePR()
+// the value of v has changed without explicit assignment
+fmt.Println(v)
+```
+
 ### Miscellanous
 
 - the `defer` statement defers the execution of a function until the surrounding function returns
