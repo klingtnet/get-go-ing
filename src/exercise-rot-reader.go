@@ -11,7 +11,7 @@ type rot13Reader struct {
 }
 
 func (r13 rot13Reader) Read(b []byte) (int, error) {
-	_, err := r13.r.Read(b)
+	l, err := r13.r.Read(b)
 	if err != nil {
 		return 0, err
 	}
@@ -33,7 +33,7 @@ func (r13 rot13Reader) Read(b []byte) (int, error) {
 			}
 		}
 	}
-	return len(b), io.EOF
+	return l, io.EOF
 }
 
 func main() {
