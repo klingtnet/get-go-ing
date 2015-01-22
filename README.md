@@ -137,7 +137,8 @@ fmt.Println(*p) // prints 42
 ```
 
 - example use cases:
-    - [call-by-reference](http://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference)
+    - avoid copying large structs to a function by passing a pointer to the struct to the function
+        - as the [Go FAQ](http://golang.org/doc/faq#pass_by_value) says, it's **not** [call-by-reference](http://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference) because *the pointer is copied*, as well as every other argument which is passed to the function
     - in-place modification, say you want to modify elements of a struct inside your function without returning it. I'm sure there is a valid use case for this, but I would consider it *bad practice* in most cases.
 
 ## Structured Data
