@@ -217,6 +217,7 @@ type Vertex struct {
     X, Y float64
 }
 
+// func MethodReceiver MethodName(Params) ReturnValue
 func (v Vertex) Abs() float64 {
     return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
