@@ -269,7 +269,7 @@ prints out:
 - an **interface type** is defined by a set of methods
 - a **type** implements an interface by **implementing its methods**
 - interfaces are **satisfied implicitly**. There is no explicit **implements** keyword (like in Java), therefore an interface is satisfied if the type implements its methods.
-- the equivalent of Javas `toString()` method is the `String()` method from the `Stringer` interface:
+- the equivalent of Java's `toString()` method is the `String()` method from the `Stringer` interface:
 
 ```go
 type Stringer interface {
