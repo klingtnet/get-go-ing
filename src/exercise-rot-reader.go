@@ -19,18 +19,14 @@ func (r13 rot13Reader) Read(b []byte) (int, error) {
 		if v == 0 {
 			break
 		}
-		if v < 'Z' {
-			if v+13 > 'Z' {
-				b[i] = ('A' - 1) + ((v + 13) - 'Z')
-			} else {
-				b[i] += 13
-			}
-		} else if v < 'z' {
-			if v+13 > 'z' {
-				b[i] = ('a' - 1) + ((v + 13) - 'z')
-			} else {
-				b[i] += 13
-			}
+		var s, e byte = 'A', 'Z'
+		if v < 'z' {
+			s, e = 'a', 'z'
+		}
+		if v+13 > e {
+			b[i] = (s - 1) + ((v + 13) - e)
+		} else {
+			b[i] += 13
 		}
 	}
 	return l, io.EOF
