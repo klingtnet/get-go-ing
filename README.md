@@ -361,3 +361,7 @@ case <-quit:
 - to build & run a Go file in one step use `go run file.go`
 - Go files can be formatted automatically using the `gofmt` tool. On default the formatted code is written to `stdout`, to overwrite the source file use `gofmt -w file.go`.
 - the execution environment of a compiled program is deterministic, thus a *random generator* for example has to be seeded, otherwise it will deliver the same number on every run of the program
+
+## Further Reading
+
+- [go-koans](https://github.com/cdarwin/go-koans) lets you learn Go by fixing test cases. Sounds boring but instead it's quite fun to fix it!
